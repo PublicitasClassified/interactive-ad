@@ -1,0 +1,223 @@
+---
+layout: default
+meta-title: Interaktives Stelleninserat Onepager
+basepath: https://cms.publisherconnect.ch/fileadmin/user/microsites/Interaktives_Stelleninserat/AEW/
+---
+
+{{> xslt_sprachweiche}}
+
+<xsl:template match="/">
+    <html class="no-js">
+      <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>{{meta-title}}</title>
+        <link rel="stylesheet" href="{{basepath}}assets/css/app.css"/>
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/> 
+      </head>
+      <body class="row align-center">
+
+<!--   <xsl:call-template name="logo"/>
+  <xsl:call-template name="defaultImage"/> -->
+
+<!--         <xsl:apply-templates select="/jobAdDetail/organization"/>
+        <xsl:apply-templates select="/jobAdDetail/description"/>
+        <xsl:apply-templates select="/jobAdDetail/requirements"/>
+        <xsl:apply-templates select="/jobAdDetail/benefits"/> -->
+
+<!-- skrollr;
+
+
+  <div
+    class="parallax-image-wrapper parallax-image-wrapper-100"
+    data-anchor-target="#home + .gap"
+    data-bottom-top="transform:translate(0px, 200%)"
+    data-top-bottom="transform:translate(0px, 0%)">
+
+    <div
+      class="parallax-image parallax-image-100"
+      style="background-image:url({{basepath}}assets/img/hg_beschreibung.jpg)"
+      data-anchor-target="#home + .gap"
+      data-bottom-top="transform: translate(0px, -80%);"
+      data-top-bottom="transform: translate(0px, 80%);"
+    ></div>
+
+</div> -->
+
+
+
+<!-- nav -->
+<div id="skrollr-body">
+
+  {{> navStickyTitlebarTopbar}}
+
+
+  <!-- sections -->
+
+
+<div id="home" class="row align-center collapse">
+  <h3>
+    <xsl:comment>Geomatiker/in lorem ipsum dolor</xsl:comment>
+    <xsl:apply-templates select="/jobAdDetail/title"/>
+  </h3>
+</div>
+
+  <div class="parallax_image"></div>
+<!-- <section class="landing large-12 columns" id="landing">
+  <div class="headline">
+  <h1>Responsive</h1>
+  <h3>Viewport Size Background Image</h3>
+  </div>
+</section> -->
+
+<!-- <div class="gap gap-100" style="background-image:url({{basepath}}assets/img/hg_beschreibung.jpg)"></div> -->
+
+  {{> html_Section_Subsection}}
+
+<!--   <section id="sd" data-magellan-target="sd" class="row align-center collapse">
+    <div class="column small-12 medium-10 large-8">
+      <xsl:comment><p>Die AEW Energie AG ist ein selbstständiges Unternehmen des Kantons Aargau. Mit der sicheren Energieversorgung (Strom und Wärme) leisten wir einen wesentlichen Beitrag zur Standortattraktivität und zur Lebensqualität in der Region. Dazu engagieren wir uns primär im Aargau in der Stromproduktion sowie als führende Netzbetreiberin und Stromlieferantin für unsere Kunden. Zudem erbringen wir Dienstleistungen rund um Strom, Wärme und Telekommunikation. Wir sind Aktionärin und Geschäftspartnerin der Axpo.
+      <br />
+      Für unsere Abteilung Vermessung in Aarau suchen wir eine/n zuverlässige/n kompetente/n und motivierte/n </p></xsl:comment>
+      <h5 id="bs" data-magellan-target="bs">Beschreibung</h5>
+      <p>Sie erwartet eine abwechslungsreiche, vielseitige und interessante Herausforderung. Zu Ihren Hauptaufgaben gehören:
+        <ul>
+          <li>Bearbeitung der anfallenden Büro- und Feldarbeiten mit modernsten Hilfsmitteln</li>
+          <li>Messungen und Absteckungen mit GPS oder Tachymeter durchführen und auswerten</li>
+          <li>Pflege der Daten im geografischen Informationssystem Smallworld</li>
+          <li>Betriebliche Koordination zwischen Baustellen, anderen Abteilungen und Partnern</li>
+        </ul>
+      </p>
+      <h5 id="af" data-magellan-target="af">Anforderungen</h5>
+      <p>Neben einer abgeschlossenen Ausbildung als Geomatiker/in verfügen Sie wenn möglich über GIS-Erfahrung und Kenntnisse im Bereich Werkkataster Elektrizität.
+      <br />
+      Sie besitzen einen Führerschein der Kat. B. Sie engagieren sich gerne in einem kleinen Team, besitzen angenehme Umgangsformen und sind sich effizientes Arbeiten gewohnt.</p>
+    </div>
+  </section>
+ -->
+  <section id="ao" data-magellan-target="ao" class="row align-center collapse">
+    <div class="column small-12 medium-10 large-8">
+<!--       <div class="responsive-embed">
+        <iframe
+          style="border:0"
+          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDQq_ZhEB9ZlfNQ5kONLvsFglPSuZtpPDI&amp;q=('Obere Vorstadt 40, 5001 Aarau, Schweiz')"
+          allowfullscreen="allowfullscreen"
+          frameborder="0"
+        > 
+        </iframe>
+      </div> -->
+    </div>
+  </section>
+
+  <section id="uu" data-magellan-target="uu" class="row align-center collapse">
+    <div class="column small-12 medium-10 large-8">
+      <h5>Arbeiten bei der AEW</h5>
+      <p>Energie ist unsere Leidenschaft. Wir bieten Ihnen eine spannende Aufgabe in einem dynamischen und herausfordernden Umfeld mit fortschrittlichen Anstellungs- und Vorsorgebedingungen und einen gut ausgerüsteten Arbeitsplatz in nächster Nähe zum Bahnhof.</p>
+    </div>
+  </section>
+
+  <section id="kt" data-magellan-target="kt" class="row align-center collapse">
+    <div class="column small-12 medium-10 large-8">
+      <h5>Kontakt</h5>
+      <p>Haben wir Ihr Interesse geweckt und verfügen Sie über die gewünschten Kompetenzen? Dann sollten Sie es nicht verpassen, sich dieser Herausforderung zu stellen. Wir freuen uns auf Ihre Bewerbung. Für weitere Auskünfte steht Ihnen Herr Jürg Reist, Leiter Vermessung (Tel. 062 834 24 89) gerne zur Verfügung.</p>
+    </div>
+  </section>
+
+   <footer class="row align-center align-middle collapse">
+    <div class="small-10 column">
+      <p>
+        2017 &#169; AEW Energie AG Impressum ect. -- www.aew.ch
+      </p>
+    </div>  
+    <div class="small-2 column social">
+        <i class="fa fa-linkedin" aria-hidden="true"></i><xsl:text> </xsl:text>
+        <i class="fa fa-xing" aria-hidden="true"></i>
+    </div>  
+  </footer>
+</div>
+
+<!-- <script src="https://cms.publisherconnect.ch/fileadmin/user/microsites/_skrollr/skrollr_0.6.30_min.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="{{basepath}}assets/js/app.js"></script>
+<script src="https://use.typekit.net/ldw1rdt.js"></script>
+<script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+<script>     
+$('link[href="https://adhosting.publisherconnect.ch/adhosting/css/wlc.css"]').prop('disabled', true);
+$('link[href="https://adhosting.publisherconnect.ch/adhosting/css/wlc.css"]').remove();
+</script> 
+    
+<script>
+<!-- load Foundation sticky script -->
+$('#skrollr-body').on('sticky.zf.stuckto:top', function(){
+  $('.left_logo').addClass("hide");
+  $('.left_title').removeClass("hide");
+  $('.content_title').addClass("hide");  
+
+}).on('sticky.zf.unstuckfrom:top', function(){
+  $(this).removeClass('shrink');
+  $('.left_logo').removeClass("hide");
+  $('.left_title').addClass("hide");
+  $('.content_title').removeClass("hide");    
+})
+</script>
+
+<!-- <script>
+function EasyPeasyParallax() {
+  scrollPos = $(this).scrollTop();
+  $('.landing').css({
+    'margin-top': (scrollPos/4)+"px",
+    'opacity': 1-(scrollPos/250)
+  });
+}
+$(document).ready(function(){
+  $(window).scroll(function() {
+    EasyPeasyParallax();
+  });
+});
+</script> -->
+
+
+<script>
+(function(){
+
+  var parallax = document.querySelectorAll(".parallax_image"),
+      speed = 0.1;
+
+  window.onscroll = function(){
+    [].slice.call(parallax).forEach(function(el,i){
+
+      var windowYOffset = window.pageYOffset,
+          elBackgrounPos = "50% " + (- windowYOffset * speed) + "px";
+
+      el.style.backgroundPosition = elBackgrounPos;
+
+    });
+  };
+
+})();
+</script>
+
+<!-- <script>
+$('.parallax').each(function(){
+        $this= $(this);
+        var window_y = (window.pageYOffset+1000);
+        var elBackgrounPos = "0 " + (window_y * speed) + "px";  
+        $this.css('background-position', elBackgrounPos);
+});
+</script> -->
+
+<!-- <script>  
+  skrollr.init({
+  smoothScrolling: false,
+  mobileDeceleration: 0.004
+  });
+</script> -->
+
+        </body>
+      </html>
+  </xsl:template>
+
+
+{{> xslt_standardvariabeln}}

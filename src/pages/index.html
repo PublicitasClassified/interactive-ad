@@ -1,0 +1,71 @@
+---
+layout: default
+meta-title: Publicitas Portfolio
+---
+
+
+
+<xsl:template match="/">
+    <html class="no-js">
+      <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>{{meta-title}}</title>
+        <link rel="stylesheet" href="assets/css/app.css"/>
+<!--         <link rel="stylesheet" href="assets/css/interactive_custom.css"/> -->
+
+      </head>
+      <body>
+
+
+<ul class="dropdown menu" data-dropdown-menu>
+  <li>
+    <a>Portfolio</a>
+    <ul class="menu">
+      <li>
+        <a href='{{root}}/adhosting_standard.html'>Adhosting-Stelleninserat Standard</a>
+      </li>    
+      <li>
+        <a href='#0'>Interaktive Stelleninserate</a>
+        <ul class='menu'>
+          <li><a href='{{root}}/interactive_onepager.html'>Onepager</a></li>
+          <li><a href='#0'>Microsite</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="#0">Item 2</a>
+    <ul class="menu">
+      <li><a href="#0">Item 2A</a></li>
+      <li><a href="#0">Item 2B</a></li>
+    </ul>
+  </li>
+  <li><a href="#0">Item 3</a></li>
+  <li><a href='#0'>Item 4</a></li>
+</ul>
+  
+   <footer>
+    <div class="small-10 column">
+      <p>
+        2017 &#169; Publicitas -- Impressum ect. 
+      </p>
+    </div>  
+    <div class="small-2 column social">
+        <i class="fa fa-linkedin" aria-hidden="true"></i><xsl:text> </xsl:text>
+        <i class="fa fa-xing" aria-hidden="true"></i>
+    </div>  
+  </footer>
+
+
+
+          <script src="{{root}}assets/js/app.js"></script>
+          <script src="https://use.typekit.net/ldw1rdt.js"></script>
+          <script>try{Typekit.load({ async: true });}catch(e){}</script>
+        </body>
+      </html>
+  </xsl:template>
+
+
+{{> xslt_standardvariabeln}}

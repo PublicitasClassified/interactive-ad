@@ -1,0 +1,44 @@
+<div style="display:none">
+    <xsl:choose>
+    <xsl:when test = "jobAdDetail/languageId='fr'">
+            <xsl:variable name="btnApply">Postuler</xsl:variable>
+            <xsl:variable name="btnPrint">Imprimer</xsl:variable>
+            <xsl:variable name="btnSendAFriend">Recommander</xsl:variable>
+            <xsl:variable name="subOrganization">Société</xsl:variable>
+            <xsl:variable name="subObjecttitle">titre d'emploi</xsl:variable>
+            <xsl:variable name="subDescription">Description du poste</xsl:variable>
+            <xsl:variable name="subRequirements">Profil demandé</xsl:variable>
+            <xsl:variable name="subBenefits">Nousoffrons</xsl:variable>
+        </xsl:when>
+        <xsl:when test = "jobAdDetail/languageId='it'">
+            <xsl:variable name="btnApply">Candidatura</xsl:variable>
+            <xsl:variable name="btnPrint">Stampa</xsl:variable>
+            <xsl:variable name="btnSendAFriend">Raccomandare</xsl:variable>
+            <xsl:variable name="subOrganization">Società</xsl:variable>
+            <xsl:variable name="subObjecttitle">titolo di lavoro</xsl:variable>
+            <xsl:variable name="subDescription">Descrizione del lavoro</xsl:variable>
+            <xsl:variable name="subRequirements">Il suo profilo</xsl:variable>
+            <xsl:variable name="subBenefits">Offriamo</xsl:variable>
+        </xsl:when>
+        <xsl:when test = "jobAdDetail/languageId='en'">
+            <xsl:variable name="btnApply">Apply now</xsl:variable>
+            <xsl:variable name="btnPrint">Print</xsl:variable>
+            <xsl:variable name="btnSendAFriend">Send a friend</xsl:variable>
+            <xsl:variable name="subOrganization">Company</xsl:variable>
+            <xsl:variable name="subObjecttitle">Job Title</xsl:variable>
+            <xsl:variable name="subDescription">Job Description</xsl:variable>
+            <xsl:variable name="subRequirements">Your profile</xsl:variable>
+            <xsl:variable name="subBenefits">We offer</xsl:variable>
+        </xsl:when>
+        <xsl:otherwise>
+            <xsl:variable name="btnApply">Bewerben</xsl:variable>
+            <xsl:variable name="btnPrint">Drucken</xsl:variable>
+            <xsl:variable name="btnSendAFriend">Weiterempfehlen</xsl:variable>
+            <xsl:variable name="subOrganization">Firmenportrait</xsl:variable>
+            <xsl:variable name="subObjecttitle">Stellenbezeichnung</xsl:variable>
+            <xsl:variable name="subDescription">Stellenbeschreibung</xsl:variable>
+            <xsl:variable name="subRequirements">Anforderungsprofil</xsl:variable>
+            <xsl:variable name="subBenefits">Wir bieten</xsl:variable>
+        </xsl:otherwise>
+    </xsl:choose>
+</div>

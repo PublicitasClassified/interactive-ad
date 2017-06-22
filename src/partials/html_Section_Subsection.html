@@ -1,0 +1,12 @@
+{{#each global.sections}}
+  <section id="{{id}}" data-magellan-target="{{id}}" class="row align-center collapse">
+    <div class="column small-12 medium-10 large-8">
+          <p>{{title}}</p>
+      <p>{{text}}</p>
+      {{sub_id}}
+      {{sub_title}}
+      {{sub_text}}
+      {{partial}}
+      </div>
+  </section>
+{{/each}}

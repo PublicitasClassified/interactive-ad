@@ -1,0 +1,50 @@
+
+<!-- <header id="header" class="topbar-sticky-shrink-header"></header> -->
+<nav class="NavContainer" data-sticky-container="">
+  <div class="topbar-sticky-shrink" data-sticky="" data-options="top-anchor: header:bottom; marginTop: 0; stickyOn: small;">
+
+    <div id="siteNavToggler" class="title-bar row collapse" data-responsive-toggle="siteNav" data-hide-for="medium"> 
+      <a href="#" class="left_logo show-for-small-only">
+        <img src="{{basepath}}assets/img/logo.png" width="40%"/>
+      </a>
+      <div class="left_title show-for-small-only">
+        <h5 class="text-right">
+          <xsl:comment>Geomatiker/in lorem ipsum dolor</xsl:comment>
+          <xsl:apply-templates select="/jobAdDetail/title"/>
+        </h5>
+      </div>      
+      <button class="menu-icon float-right" type="button" data-toggle=""></button>
+    </div>
+
+    <div id="siteNav" class="top-bar" data-magellan="" activeClass="active" data-bar-offset='100'>
+
+      <div class="left_logo hide-for-small-only">
+        <img src="{{basepath}}assets/img/logo.png"/>
+      </div>
+      <div class="left_title hide-for-small-only">
+        <h6>
+          <xsl:comment><div class="text-right">Geomatiker/in lorem ipsum dolor</div></xsl:comment>
+          <xsl:apply-templates select="/jobAdDetail/title"/>
+        </h6>
+      </div>
+
+      <div class="top-bar-right align-self-bottom">
+        <ul class="menu dropdown" data-dropdown-menu="">
+          <li class="has-submenu">
+            <a href="#sd"><h5>Stellendetails</h5></a>
+            <ul class="submenu vertical" data-submenu="">
+              <li><a href="#bs">Beschreibung</a></li>
+              <li><a href="#af">Anforderungen</a></li>
+            </ul>
+          </li>
+          <li><a href="#ao"><h5>Arbeitsort</h5></a></li>
+          <li><a href="#uu"><h5>Abeiten bei der AEW</h5></a></li>          
+          <li><a href="#kt"><h5>Kontakt</h5></a></li>
+        </ul>
+      </div>
+
+
+    </div>
+
+  </div>
+</nav>

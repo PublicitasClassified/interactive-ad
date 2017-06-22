@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:phone="xalan://com.namics.publiconnect.wlc.common.formatter.PhoneFormatter">
+  <xsl:output method="html" omit-xml-declaration="yes" />
+
+  <div style="display:none">
+    <xsl:param name="languageParam" select="'de'"/>
+    <xsl:param name="logoUrlParam" select="''"/>
+    <xsl:param name="defaultImageUrlParam" select="''"/>
+    <xsl:param name="xsltTemplateImageBasePathParam" select="''"/>
+    <xsl:param name="defaultOriginalImageUrlParam" select="''"/>
+    <xsl:variable name="xsltTemplateImageBasePath" select="$xsltTemplateImageBasePathParam"/>
+    <xsl:variable name="logoUrl" select="$logoUrlParam"/>
+    <xsl:variable name="defaultImageUrl" select="$defaultImageUrlParam"/>
+    <xsl:variable name="bewerberlink" select="/jobAdDetail/adContact/externalObjectLink"/>
+    <xsl:variable name="showDefaultImageDescription">false</xsl:variable>
+    <xsl:variable name="xslt_cms_basepath" select="//cms.publisherconnect.ch/fileadmin/user/microsites/Sensirion/"/>
+  </div>
+
+      {{!-- Pages you create in the src/pages/ folder are inserted here when the flattened page is created. --}}
+      {{> body}}
+</xsl:stylesheet>
+

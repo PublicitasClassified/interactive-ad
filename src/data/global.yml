@@ -1,0 +1,21 @@
+sections:
+  -
+    id: 'sd'
+    text: sdfsdfsd
+  -
+    id: ao
+    title: jöjöjö
+    text: sdfsdfsdfsdfsdfsdfsf
+    sub_id: sub id
+    sub_title: sub title
+    sub_text: sub id    
+  -
+    sub_id: sub id2
+    sub_title: sub title2
+    sub_text: sub id 2   
+  -
+    partial: '{{> html_google_map}}'
+    sub_title: sub title2
+    sub_text: sub id 2   
+  -
+

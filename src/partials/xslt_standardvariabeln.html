@@ -1,0 +1,25 @@
+<!-- Firmenportrait -->
+<xsl:template match="organization">
+    <xsl:value-of disable-output-escaping="yes" select="/jobAdDetail/organization"/>
+</xsl:template>
+
+<!-- Titel -->
+<xsl:template match="title">
+	<xsl:value-of disable-output-escaping="yes" select="."/>
+</xsl:template>
+
+<!-- Stellenbeschreibung -->
+<xsl:template match="description">
+	<xsl:value-of disable-output-escaping="yes" select="."/>
+</xsl:template>
+
+<!-- Anforderungsprofil -->
+<xsl:template match="requirements">
+	<xsl:value-of disable-output-escaping="yes" select="."/>
+</xsl:template>
+
+<!-- Wir bieten -->
+<xsl:template match="benefits">
+	<xsl:value-of disable-output-escaping="yes" select="."/>
+</xsl:template>
+

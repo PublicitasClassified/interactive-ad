@@ -1,0 +1,9 @@
+	<xsl:template name="Abfrage_tagline">
+		<xsl:variable name="taglineVar" select="/jobAdDetail/contentFields[position='2']"/>
+		<xsl:if test="$taglineVar!=''">
+			<xsl:apply-templates select="/jobAdDetail/contentFields[position='2']"/>
+		</xsl:if>
+	</xsl:template>
+	<xsl:template match="contentFields[position='2']">
+		<xsl:value-of disable-output-escaping="yes" select="value"/>
+	</xsl:template>

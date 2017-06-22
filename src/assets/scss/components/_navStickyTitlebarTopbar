@@ -1,0 +1,123 @@
+
+$topbar-sticky-shrink-padding: 2vw 2vw 2vw 4vw; // controls the un-stuck height of topbar
+$topbar-sticky-shrink-padding-stuck: 1rem; // controls the is stuck height of topbar
+$topbar-sticky-shrink-bg: #3c52a6;
+
+
+
+
+/*@media screen and (max-width: 39.9375em) {}*/
+	ul.menu.dropdown li a h5{font-size:.9rem;}
+	ul.dropdown.menu > li > a{padding: 0 3vw 0 0}
+
+	.is-dropdown-submenu {
+	list-style-type: none;
+	    background: #3c52a6 none repeat scroll 0 0;
+	    border: 1px solid white;
+	    display: none;
+	    position: absolute;
+	    z-index: -1;
+	    min-width:70px;
+	    padding:2rem 0 .25rem .25rem;
+	}
+
+	.is-dropdown-submenu li{
+	padding:0;
+	font-size:.9rem;
+	}
+
+	.dropdown.menu > li.opens-left > .is-dropdown-submenu {
+	    left: -1.5rem;
+	    right: 0rem;
+	    top: 0rem;
+
+	}
+
+
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+
+	ul.menu.dropdown li a h5{font-size:1rem;}
+	ul.dropdown.menu > li > a{padding: 0 3vw 0 0}
+
+	.is-dropdown-submenu {
+		width:15vw;
+	}
+
+	.is-dropdown-submenu li{
+	font-size:1rem;
+	}
+
+	.dropdown.menu > li.opens-left > .is-dropdown-submenu {
+	}
+}
+
+@media screen and (min-width: 64em) {
+
+	ul.menu.dropdown li a h5{font-size:1rem;}
+	ul.dropdown.menu > li > a{padding: 0 3rem 0 0}
+
+	.is-dropdown-submenu {
+		width:7.5rem;
+	}
+
+	.is-dropdown-submenu li{
+	font-size:1rem;
+	}
+
+	.dropdown.menu > li.opens-left > .is-dropdown-submenu {
+	}
+}
+
+
+
+
+
+
+.topbar-sticky-shrink {
+  padding:$topbar-sticky-shrink-padding;
+  transition: padding 0.5s ease;
+  background: $topbar-sticky-shrink-bg;
+
+  .menu {
+    background: transparent;
+  }
+}
+
+.is-stuck .topbar-sticky-shrink {
+  padding: $topbar-sticky-shrink-padding-stuck;
+  transition: padding 0.5s ease;
+}
+
+[data-sticky] {
+  width: 100%;
+}
+
+.left_title h6{color:white;padding-top:.2rem;}
+
+#home h3{color:white;padding:5rem 0 5rem 0;}
+
+.left_logo{width:11rem;}
+.left_logo img{width:100%;}
+/*.top-bar {
+  padding: 2.1rem 2.1rem 2.1rem 3rem;
+  transition: padding .25s ease;
+}
+
+.is-stuck .top-bar {
+  padding: 1rem;
+  transition: padding .25s ease;
+}
+
+
+
+*/
+
+
+
+.title-bar{background-color: transparent;}
+
+
+section{padding: 10rem 0;}
+section#sd{padding:5rem 0;}
+section#uu{padding:10rem 0 30rem 0;}
+section#kt{padding:20rem 0 30rem 0;}
