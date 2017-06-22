@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:phone="xalan://com.namics.publiconnect.wlc.common.formatter.PhoneFormatter">
+  <xsl:output method="html" omit-xml-declaration="yes" />
+
+  <div style="display:none">
+    <xsl:param name="languageParam" select="'de'"/>
+    <xsl:param name="logoUrlParam" select="''"/>
+    <xsl:param name="defaultImageUrlParam" select="''"/>
+    <xsl:param name="xsltTemplateImageBasePathParam" select="''"/>
+    <xsl:param name="defaultOriginalImageUrlParam" select="''"/>
+    <xsl:variable name="xsltTemplateImageBasePath" select="$xsltTemplateImageBasePathParam"/>
+    <xsl:variable name="logoUrl" select="$logoUrlParam"/>
+    <xsl:variable name="defaultImageUrl" select="$defaultImageUrlParam"/>
+    <xsl:variable name="bewerberlink" select="/jobAdDetail/adContact/externalObjectLink"/>
+    <xsl:variable name="showDefaultImageDescription">false</xsl:variable>
+    <xsl:variable name="xslt_cms_basepath" select="//cms.publisherconnect.ch/fileadmin/user/microsites/Sensirion/"/>
+  </div>
+
+      
+      <div style="display:none">
+          <xsl:choose>
+          <xsl:when test = "jobAdDetail/languageId='fr'">
+                  <xsl:variable name="btnApply">Postuler</xsl:variable>
+                  <xsl:variable name="btnPrint">Imprimer</xsl:variable>
+                  <xsl:variable name="btnSendAFriend">Recommander</xsl:variable>
+                  <xsl:variable name="subOrganization">Société</xsl:variable>
+                  <xsl:variable name="subObjecttitle">titre d'emploi</xsl:variable>
+                  <xsl:variable name="subDescription">Description du poste</xsl:variable>
+                  <xsl:variable name="subRequirements">Profil demandé</xsl:variable>
+                  <xsl:variable name="subBenefits">Nousoffrons</xsl:variable>
+              </xsl:when>
+              <xsl:when test = "jobAdDetail/languageId='it'">
+                  <xsl:variable name="btnApply">Candidatura</xsl:variable>
+                  <xsl:variable name="btnPrint">Stampa</xsl:variable>
+                  <xsl:variable name="btnSendAFriend">Raccomandare</xsl:variable>
+                  <xsl:variable name="subOrganization">Società</xsl:variable>
+                  <xsl:variable name="subObjecttitle">titolo di lavoro</xsl:variable>
+                  <xsl:variable name="subDescription">Descrizione del lavoro</xsl:variable>
+                  <xsl:variable name="subRequirements">Il suo profilo</xsl:variable>
+                  <xsl:variable name="subBenefits">Offriamo</xsl:variable>
+              </xsl:when>
+              <xsl:when test = "jobAdDetail/languageId='en'">
+                  <xsl:variable name="btnApply">Apply now</xsl:variable>
+                  <xsl:variable name="btnPrint">Print</xsl:variable>
+                  <xsl:variable name="btnSendAFriend">Send a friend</xsl:variable>
+                  <xsl:variable name="subOrganization">Company</xsl:variable>
+                  <xsl:variable name="subObjecttitle">Job Title</xsl:variable>
+                  <xsl:variable name="subDescription">Job Description</xsl:variable>
+                  <xsl:variable name="subRequirements">Your profile</xsl:variable>
+                  <xsl:variable name="subBenefits">We offer</xsl:variable>
+              </xsl:when>
+              <xsl:otherwise>
+                  <xsl:variable name="btnApply">Bewerben</xsl:variable>
+                  <xsl:variable name="btnPrint">Drucken</xsl:variable>
+                  <xsl:variable name="btnSendAFriend">Weiterempfehlen</xsl:variable>
+                  <xsl:variable name="subOrganization">Firmenportrait</xsl:variable>
+                  <xsl:variable name="subObjecttitle">Stellenbezeichnung</xsl:variable>
+                  <xsl:variable name="subDescription">Stellenbeschreibung</xsl:variable>
+                  <xsl:variable name="subRequirements">Anforderungsprofil</xsl:variable>
+                  <xsl:variable name="subBenefits">Wir bieten</xsl:variable>
+              </xsl:otherwise>
+          </xsl:choose>
+      </div>
+      
+      <xsl:template match="/">
+          <html class="no-js">
+            <head>
+              <meta charset="utf-8" />
+              <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+              <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+              <title>Interaktives Stelleninserat Onepager</title>
+              <link rel="stylesheet" href="https://cms.publisherconnect.ch/fileadmin/user/microsites/Interaktives_Stelleninserat/AEW/assets/css/app.css"/>
+              <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/> 
+            </head>
+            <body class="row align-center">
+      
+      <!--   <xsl:call-template name="logo"/>
+        <xsl:call-template name="defaultImage"/> -->
+      
+      <!--         <xsl:apply-templates select="/jobAdDetail/organization"/>
+              <xsl:apply-templates select="/jobAdDetail/description"/>
+              <xsl:apply-templates select="/jobAdDetail/requirements"/>
+              <xsl:apply-templates select="/jobAdDetail/benefits"/> -->
+      
+      <!-- skrollr;
+      
+      
+        <div
+          class="parallax-image-wrapper parallax-image-wrapper-100"
+          data-anchor-target="#home + .gap"
+          data-bottom-top="transform:translate(0px, 200%)"
+          data-top-bottom="transform:translate(0px, 0%)">
+      
+          <div
+            class="parallax-image parallax-image-100"
+            style="background-image:url(https://cms.publisherconnect.ch/fileadmin/user/microsites/Interaktives_Stelleninserat/AEW/assets/img/hg_beschreibung.jpg)"
+            data-anchor-target="#home + .gap"
+            data-bottom-top="transform: translate(0px, -80%);"
+            data-top-bottom="transform: translate(0px, 80%);"
+          ></div>
+      
+      </div> -->
+      
+      
+      
+      <!-- nav -->
+      <div id="skrollr-body">
+      
+        
+        <!-- <header id="header" class="topbar-sticky-shrink-header"></header> -->
+        <nav class="NavContainer" data-sticky-container="">
+          <div class="topbar-sticky-shrink" data-sticky="" data-options="top-anchor: header:bottom; marginTop: 0; stickyOn: small;">
+        
+            <div id="siteNavToggler" class="title-bar row collapse" data-responsive-toggle="siteNav" data-hide-for="medium"> 
+              <a href="#" class="left_logo show-for-small-only">
+                <img src="https://cms.publisherconnect.ch/fileadmin/user/microsites/Interaktives_Stelleninserat/AEW/assets/img/logo.png" width="40%"/>
+              </a>
+              <div class="left_title show-for-small-only">
+                <h5 class="text-right">
+                  <xsl:comment>Geomatiker/in lorem ipsum dolor</xsl:comment>
+                  <xsl:apply-templates select="/jobAdDetail/title"/>
+                </h5>
+              </div>      
+              <button class="menu-icon float-right" type="button" data-toggle=""></button>
+            </div>
+        
+            <div id="siteNav" class="top-bar" data-magellan="" activeClass="active" data-bar-offset='100'>
+        
+              <div class="left_logo hide-for-small-only">
+                <img src="https://cms.publisherconnect.ch/fileadmin/user/microsites/Interaktives_Stelleninserat/AEW/assets/img/logo.png"/>
+              </div>
+              <div class="left_title hide-for-small-only">
+                <h6>
+                  <xsl:comment><div class="text-right">Geomatiker/in lorem ipsum dolor</div></xsl:comment>
+                  <xsl:apply-templates select="/jobAdDetail/title"/>
+                </h6>
+              </div>
+        
+              <div class="top-bar-right align-self-bottom">
+                <ul class="menu dropdown" data-dropdown-menu="">
+                  <li class="has-submenu">
+                    <a href="#sd"><h5>Stellendetails</h5></a>
+                    <ul class="submenu vertical" data-submenu="">
+                      <li><a href="#bs">Beschreibung</a></li>
+                      <li><a href="#af">Anforderungen</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#ao"><h5>Arbeitsort</h5></a></li>
+                  <li><a href="#uu"><h5>Abeiten bei der AEW</h5></a></li>          
+                  <li><a href="#kt"><h5>Kontakt</h5></a></li>
+                </ul>
+              </div>
+        
+        
+            </div>
+        
+          </div>
+        </nav>
+        
+      
+      
+        <!-- sections -->
+      
+      
+      <div id="home" class="row align-center collapse">
+        <h3>
+          <xsl:comment>Geomatiker/in lorem ipsum dolor</xsl:comment>
+          <xsl:apply-templates select="/jobAdDetail/title"/>
+        </h3>
+      </div>
+      
+        <div class="parallax_image"></div>
+      <!-- <section class="landing large-12 columns" id="landing">
+        <div class="headline">
+        <h1>Responsive</h1>
+        <h3>Viewport Size Background Image</h3>
+        </div>
+      </section> -->
+      
+      <!-- <div class="gap gap-100" style="background-image:url(https://cms.publisherconnect.ch/fileadmin/user/microsites/Interaktives_Stelleninserat/AEW/assets/img/hg_beschreibung.jpg)"></div> -->
+      
+          <section id="sd" data-magellan-target="sd" class="row align-center collapse">
+            <div class="column small-12 medium-10 large-8">
+                  <p></p>
+              <p>sdfsdfsd</p>
+              
+              
+              
+              
+              </div>
+          </section>
+          <section id="ao" data-magellan-target="ao" class="row align-center collapse">
+            <div class="column small-12 medium-10 large-8">
+                  <p>jöjöjö</p>
+              <p>sdfsdfsdfsdfsdfsdfsf</p>
+              sub id
+              sub title
+              sub id
+              
+              </div>
+          </section>
+          <section id="" data-magellan-target="" class="row align-center collapse">
+            <div class="column small-12 medium-10 large-8">
+                  <p></p>
+              <p></p>
+              sub id2
+              sub title2
+              sub id 2
+              
+              </div>
+          </section>
+          <section id="" data-magellan-target="" class="row align-center collapse">
+            <div class="column small-12 medium-10 large-8">
+                  <p></p>
+              <p></p>
+              
+              sub title2
+              sub id 2
+              {{&gt; html_google_map}}
+              </div>
+          </section>
+          <section id="" data-magellan-target="" class="row align-center collapse">
+            <div class="column small-12 medium-10 large-8">
+                  <p></p>
+              <p></p>
+              
+              
+              
+              
+              </div>
+          </section>
+        
+      
+      <!--   <section id="sd" data-magellan-target="sd" class="row align-center collapse">
+          <div class="column small-12 medium-10 large-8">
+            <xsl:comment><p>Die AEW Energie AG ist ein selbstständiges Unternehmen des Kantons Aargau. Mit der sicheren Energieversorgung (Strom und Wärme) leisten wir einen wesentlichen Beitrag zur Standortattraktivität und zur Lebensqualität in der Region. Dazu engagieren wir uns primär im Aargau in der Stromproduktion sowie als führende Netzbetreiberin und Stromlieferantin für unsere Kunden. Zudem erbringen wir Dienstleistungen rund um Strom, Wärme und Telekommunikation. Wir sind Aktionärin und Geschäftspartnerin der Axpo.
+            <br />
+            Für unsere Abteilung Vermessung in Aarau suchen wir eine/n zuverlässige/n kompetente/n und motivierte/n </p></xsl:comment>
+            <h5 id="bs" data-magellan-target="bs">Beschreibung</h5>
+            <p>Sie erwartet eine abwechslungsreiche, vielseitige und interessante Herausforderung. Zu Ihren Hauptaufgaben gehören:
+              <ul>
+                <li>Bearbeitung der anfallenden Büro- und Feldarbeiten mit modernsten Hilfsmitteln</li>
+                <li>Messungen und Absteckungen mit GPS oder Tachymeter durchführen und auswerten</li>
+                <li>Pflege der Daten im geografischen Informationssystem Smallworld</li>
+                <li>Betriebliche Koordination zwischen Baustellen, anderen Abteilungen und Partnern</li>
+              </ul>
+            </p>
+            <h5 id="af" data-magellan-target="af">Anforderungen</h5>
+            <p>Neben einer abgeschlossenen Ausbildung als Geomatiker/in verfügen Sie wenn möglich über GIS-Erfahrung und Kenntnisse im Bereich Werkkataster Elektrizität.
+            <br />
+            Sie besitzen einen Führerschein der Kat. B. Sie engagieren sich gerne in einem kleinen Team, besitzen angenehme Umgangsformen und sind sich effizientes Arbeiten gewohnt.</p>
+          </div>
+        </section>
+       -->
+        <section id="ao" data-magellan-target="ao" class="row align-center collapse">
+          <div class="column small-12 medium-10 large-8">
+      <!--       <div class="responsive-embed">
+              <iframe
+                style="border:0"
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDQq_ZhEB9ZlfNQ5kONLvsFglPSuZtpPDI&amp;q=('Obere Vorstadt 40, 5001 Aarau, Schweiz')"
+                allowfullscreen="allowfullscreen"
+                frameborder="0"
+              > 
+              </iframe>
+            </div> -->
+          </div>
+        </section>
+      
+        <section id="uu" data-magellan-target="uu" class="row align-center collapse">
+          <div class="column small-12 medium-10 large-8">
+            <h5>Arbeiten bei der AEW</h5>
+            <p>Energie ist unsere Leidenschaft. Wir bieten Ihnen eine spannende Aufgabe in einem dynamischen und herausfordernden Umfeld mit fortschrittlichen Anstellungs- und Vorsorgebedingungen und einen gut ausgerüsteten Arbeitsplatz in nächster Nähe zum Bahnhof.</p>
+          </div>
+        </section>
+      
+        <section id="kt" data-magellan-target="kt" class="row align-center collapse">
+          <div class="column small-12 medium-10 large-8">
+            <h5>Kontakt</h5>
+            <p>Haben wir Ihr Interesse geweckt und verfügen Sie über die gewünschten Kompetenzen? Dann sollten Sie es nicht verpassen, sich dieser Herausforderung zu stellen. Wir freuen uns auf Ihre Bewerbung. Für weitere Auskünfte steht Ihnen Herr Jürg Reist, Leiter Vermessung (Tel. 062 834 24 89) gerne zur Verfügung.</p>
+          </div>
+        </section>
+      
+         <footer class="row align-center align-middle collapse">
+          <div class="small-10 column">
+            <p>
+              2017 &#169; AEW Energie AG Impressum ect. -- www.aew.ch
+            </p>
+          </div>  
+          <div class="small-2 column social">
+              <i class="fa fa-linkedin" aria-hidden="true"></i><xsl:text> </xsl:text>
+              <i class="fa fa-xing" aria-hidden="true"></i>
+          </div>  
+        </footer>
+      </div>
+      
+      <!-- <script src="https://cms.publisherconnect.ch/fileadmin/user/microsites/_skrollr/skrollr_0.6.30_min.js"></script> -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+      <script src="https://cms.publisherconnect.ch/fileadmin/user/microsites/Interaktives_Stelleninserat/AEW/assets/js/app.js"></script>
+      <script src="https://use.typekit.net/ldw1rdt.js"></script>
+      <script>try{Typekit.load({ async: true });}catch(e){}</script>
+      
+      <script>     
+      $('link[href="https://adhosting.publisherconnect.ch/adhosting/css/wlc.css"]').prop('disabled', true);
+      $('link[href="https://adhosting.publisherconnect.ch/adhosting/css/wlc.css"]').remove();
+      </script> 
+          
+      <script>
+      <!-- load Foundation sticky script -->
+      $('#skrollr-body').on('sticky.zf.stuckto:top', function(){
+        $('.left_logo').addClass("hide");
+        $('.left_title').removeClass("hide");
+        $('.content_title').addClass("hide");  
+      
+      }).on('sticky.zf.unstuckfrom:top', function(){
+        $(this).removeClass('shrink');
+        $('.left_logo').removeClass("hide");
+        $('.left_title').addClass("hide");
+        $('.content_title').removeClass("hide");    
+      })
+      </script>
+      
+      <!-- <script>
+      function EasyPeasyParallax() {
+        scrollPos = $(this).scrollTop();
+        $('.landing').css({
+          'margin-top': (scrollPos/4)+"px",
+          'opacity': 1-(scrollPos/250)
+        });
+      }
+      $(document).ready(function(){
+        $(window).scroll(function() {
+          EasyPeasyParallax();
+        });
+      });
+      </script> -->
+      
+      
+      <script>
+      (function(){
+      
+        var parallax = document.querySelectorAll(".parallax_image"),
+            speed = 0.1;
+      
+        window.onscroll = function(){
+          [].slice.call(parallax).forEach(function(el,i){
+      
+            var windowYOffset = window.pageYOffset,
+                elBackgrounPos = "50% " + (- windowYOffset * speed) + "px";
+      
+            el.style.backgroundPosition = elBackgrounPos;
+      
+          });
+        };
+      
+      })();
+      </script>
+      
+      <!-- <script>
+      $('.parallax').each(function(){
+              $this= $(this);
+              var window_y = (window.pageYOffset+1000);
+              var elBackgrounPos = "0 " + (window_y * speed) + "px";  
+              $this.css('background-position', elBackgrounPos);
+      });
+      </script> -->
+      
+      <!-- <script>  
+        skrollr.init({
+        smoothScrolling: false,
+        mobileDeceleration: 0.004
+        });
+      </script> -->
+      
+              </body>
+            </html>
+        </xsl:template>
+      
+      
+      <!-- Firmenportrait -->
+      <xsl:template match="organization">
+          <xsl:value-of disable-output-escaping="yes" select="/jobAdDetail/organization"/>
+      </xsl:template>
+      
+      <!-- Titel -->
+      <xsl:template match="title">
+      	<xsl:value-of disable-output-escaping="yes" select="."/>
+      </xsl:template>
+      
+      <!-- Stellenbeschreibung -->
+      <xsl:template match="description">
+      	<xsl:value-of disable-output-escaping="yes" select="."/>
+      </xsl:template>
+      
+      <!-- Anforderungsprofil -->
+      <xsl:template match="requirements">
+      	<xsl:value-of disable-output-escaping="yes" select="."/>
+      </xsl:template>
+      
+      <!-- Wir bieten -->
+      <xsl:template match="benefits">
+      	<xsl:value-of disable-output-escaping="yes" select="."/>
+      </xsl:template>
+      
+      
+</xsl:stylesheet>
+
