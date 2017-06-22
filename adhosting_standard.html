@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:phone="xalan://com.namics.publiconnect.wlc.common.formatter.PhoneFormatter">
+  <xsl:output method="html" omit-xml-declaration="yes" />
+
+  <div style="display:none">
+    <xsl:param name="languageParam" select="'de'"/>
+    <xsl:param name="logoUrlParam" select="''"/>
+    <xsl:param name="defaultImageUrlParam" select="''"/>
+    <xsl:param name="xsltTemplateImageBasePathParam" select="''"/>
+    <xsl:param name="defaultOriginalImageUrlParam" select="''"/>
+    <xsl:variable name="xsltTemplateImageBasePath" select="$xsltTemplateImageBasePathParam"/>
+    <xsl:variable name="logoUrl" select="$logoUrlParam"/>
+    <xsl:variable name="defaultImageUrl" select="$defaultImageUrlParam"/>
+    <xsl:variable name="bewerberlink" select="/jobAdDetail/adContact/externalObjectLink"/>
+    <xsl:variable name="showDefaultImageDescription">false</xsl:variable>
+    <xsl:variable name="xslt_cms_basepath" select="//cms.publisherconnect.ch/fileadmin/user/microsites/Sensirion/"/>
+  </div>
+
+      
+      <div style="display:none">
+          <xsl:choose>
+          <xsl:when test = "jobAdDetail/languageId='fr'">
+                  <xsl:variable name="btnApply">Postuler</xsl:variable>
+                  <xsl:variable name="btnPrint">Imprimer</xsl:variable>
+                  <xsl:variable name="btnSendAFriend">Recommander</xsl:variable>
+                  <xsl:variable name="subOrganization">Société</xsl:variable>
+                  <xsl:variable name="subObjecttitle">titre d'emploi</xsl:variable>
+                  <xsl:variable name="subDescription">Description du poste</xsl:variable>
+                  <xsl:variable name="subRequirements">Profil demandé</xsl:variable>
+                  <xsl:variable name="subBenefits">Nousoffrons</xsl:variable>
+              </xsl:when>
+              <xsl:when test = "jobAdDetail/languageId='it'">
+                  <xsl:variable name="btnApply">Candidatura</xsl:variable>
+                  <xsl:variable name="btnPrint">Stampa</xsl:variable>
+                  <xsl:variable name="btnSendAFriend">Raccomandare</xsl:variable>
+                  <xsl:variable name="subOrganization">Società</xsl:variable>
+                  <xsl:variable name="subObjecttitle">titolo di lavoro</xsl:variable>
+                  <xsl:variable name="subDescription">Descrizione del lavoro</xsl:variable>
+                  <xsl:variable name="subRequirements">Il suo profilo</xsl:variable>
+                  <xsl:variable name="subBenefits">Offriamo</xsl:variable>
+              </xsl:when>
+              <xsl:when test = "jobAdDetail/languageId='en'">
+                  <xsl:variable name="btnApply">Apply now</xsl:variable>
+                  <xsl:variable name="btnPrint">Print</xsl:variable>
+                  <xsl:variable name="btnSendAFriend">Send a friend</xsl:variable>
+                  <xsl:variable name="subOrganization">Company</xsl:variable>
+                  <xsl:variable name="subObjecttitle">Job Title</xsl:variable>
+                  <xsl:variable name="subDescription">Job Description</xsl:variable>
+                  <xsl:variable name="subRequirements">Your profile</xsl:variable>
+                  <xsl:variable name="subBenefits">We offer</xsl:variable>
+              </xsl:when>
+              <xsl:otherwise>
+                  <xsl:variable name="btnApply">Bewerben</xsl:variable>
+                  <xsl:variable name="btnPrint">Drucken</xsl:variable>
+                  <xsl:variable name="btnSendAFriend">Weiterempfehlen</xsl:variable>
+                  <xsl:variable name="subOrganization">Firmenportrait</xsl:variable>
+                  <xsl:variable name="subObjecttitle">Stellenbezeichnung</xsl:variable>
+                  <xsl:variable name="subDescription">Stellenbeschreibung</xsl:variable>
+                  <xsl:variable name="subRequirements">Anforderungsprofil</xsl:variable>
+                  <xsl:variable name="subBenefits">Wir bieten</xsl:variable>
+              </xsl:otherwise>
+          </xsl:choose>
+      </div>
+      
+      <xsl:template match="/">
+          <html class="no-js">
+            <head>
+              <meta charset="utf-8" />
+              <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+              <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+              <title>Adhosting Standard</title>
+              <link rel="stylesheet" href="assets/css/app.css"/>
+      <!--         <link rel="stylesheet" href="assets/css/interactive_custom.css"/> -->
+      
+      
+            </head>
+            <body>
+      
+      <!--   <xsl:call-template name="logo"/>
+        <xsl:call-template name="defaultImage"/> -->
+              <xsl:apply-templates select="/jobAdDetail/organization"/>
+              <xsl:apply-templates select="/jobAdDetail/description"/>
+              <xsl:apply-templates select="/jobAdDetail/requirements"/>
+              <xsl:apply-templates select="/jobAdDetail/benefits" />
+      
+      <!-- skrollr; läuft momentan noch nicht! -->
+      <!--         <div
+                class="parallax-image-wrapper parallax-image-wrapper-100"
+                data-anchor-target="#ueberuns + .gap"
+                data-bottom-top="transform:translate(0px, 300%)"
+                data-top-bottom="transform:translate(0px, 0%)">
+      
+                <div
+                  class="parallax-image parallax-image-100"
+                  style="background-image:url({$xsltTemplateImageBasePath}sb.jpg)"
+                  data-anchor-target="#ueberuns + .gap"
+                  data-bottom-top="transform: translate(0px, -60%);"
+                  data-top-bottom="transform: translate(0px, 60%);"
+      
+                ></div>
+      
+              </div> -->
+      
+      <!-- nav -->
+      <div id="skrollr-body">
+      
+        <!-- sections -->
+      
+      <div class="row align-center">
+          <div class="row align-center collapse">
+            <div class="small-12 column">
+              <img src="https://cms.publisherconnect.ch/fileadmin/user/microsites/Interaktives_Stelleninserat/AEW/assets/img/head_bild.jpg" alt="Auf dem Bild ist die Recruiting Manager Marco Höhener zu sehen." width="100%"/>
+            </div>
+          </div>
+      
+        <ul class="accordion small-12 medium-10 large-8 column" data-accordion="">
+          <li class="accordion-item is-active" data-accordion-item>
+            <!-- Accordion tab title -->
+            <a href="#" class="accordion-title">Firmenportrait</a>
+      
+            <!-- Accordion tab content: it would start in the open state due to using the `is-active` state class. -->
+            <div class="accordion-content" data-tab-content>
+              <p>Die AEW Energie AG ist ein selbstständiges Unternehmen des Kantons Aargau. Mit der sicheren Energieversorgung (Strom und Wärme) leisten wir einen wesentlichen Beitrag zur Standortattraktivität und zur Lebensqualität in der Region. Dazu engagieren wir uns primär im Aargau in der Stromproduktion sowie als führende Netzbetreiberin und Stromlieferantin für unsere Kunden. Zudem erbringen wir Dienstleistungen rund um Strom, Wärme und Telekommunikation. Wir sind Aktionärin und Geschäftspartnerin der Axpo.
+              <br />
+              <br />
+              Für unsere Abteilung Vermessung in Aarau suchen wir eine/n zuverlässige/n kompetente/n und motivierte/n </p>
+            </div>
+          </li>
+          <div id="job" class="row">
+          <h4>
+            <xsl:comment>Geomatiker</xsl:comment>
+            <xsl:apply-templates select="/jobAdDetail/title"/>
+          </h4>
+        </div>
+          <li class="accordion-item" data-accordion-item>
+            <!-- Accordion tab title -->
+            <a href="#" class="accordion-title">Stellenbeschreibung</a>
+      
+            <!-- Accordion tab content: it would start in the open state due to using the `is-active` state class. -->
+            <div class="accordion-content" data-tab-content>
+              <p>Sie erwartet eine abwechslungsreiche, vielseitige und interessante Herausforderung. Zu Ihren Hauptaufgaben gehören:
+                <ul>
+                  <li>Bearbeitung der anfallenden Büro- und Feldarbeiten mit modernsten Hilfsmitteln Messungen und Absteckungen mit GPS oder Tachymeter durchführen und auswerten</li>
+                  <li>Pflege der Daten im geografischen Informationssystem Smallworld</li>
+                  <li>Betriebliche Koordination zwischen Baustellen, anderen Abteilungen und Partnern</li>
+                </ul>
+              </p>
+            </div>
+          </li>
+          <li class="accordion-item" data-accordion-item>
+            <!-- Accordion tab title -->
+            <a href="#" class="accordion-title">Anforderungsprofil</a>
+      
+            <!-- Accordion tab content: it would start in the open state due to using the `is-active` state class. -->
+            <div class="accordion-content" data-tab-content>
+              <p>Neben einer abgeschlossenen Ausbildung als Geomatiker/in verfügen Sie wenn möglich über GIS-Erfahrung und Kenntnisse im Bereich Werkkataster Elektrizität. Sie besitzen einen Führerschein der Kat. B. Sie engagieren sich gerne in einem kleinen Team, besitzen angenehme Umgangsformen und sind sich effizientes Arbeiten gewohnt.</p>
+            </div>
+          </li>
+          <li class="accordion-item" data-accordion-item>
+            <!-- Accordion tab title -->
+            <a href="#" class="accordion-title">Wir bieten</a>
+      
+            <!-- Accordion tab content: it would start in the open state due to using the `is-active` state class. -->
+            <div class="accordion-content" data-tab-content>
+              <p>Energie ist unsere Leidenschaft. Wir bieten Ihnen eine spannende Aufgabe in einem dynamischen und herausfordernden Umfeld mit fortschrittlichen Anstellungs- und Vorsorgebedingungen und einen gut ausgerüsteten Arbeitsplatz in nächster Nähe zum Bahnhof.
+              <br />
+              <br />
+              Haben wir Ihr Interesse geweckt und verfügen Sie über die gewünschten Kompetenzen? Dann sollten Sie es nicht verpassen, sich dieser Herausforderung zu stellen. Wir freuen uns auf Ihre Bewerbung. Für weitere Auskünfte steht Ihnen Herr Jürg Reist, Leiter Vermessung (Tel. 062 834 24 89) gerne zur Verfügung.</p>
+            </div>
+          </li>  
+        </ul>
+      </div>
+        
+         <footer class="row align-center align-middle">
+          <div class="small-12 medium-10 large-8 column">
+            <p>
+              2017 &#169; Firmenname Impressum ect. 
+            </p>
+          </div>  
+          <div class="small-2 column social">
+              <i class="fa fa-linkedin" aria-hidden="true"></i><xsl:text> </xsl:text>
+              <i class="fa fa-xing" aria-hidden="true"></i>
+          </div>  
+        </footer>
+      </div>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>; 
+                <script src="assets/js/app.js"></script>
+                <script src="https://use.typekit.net/ldw1rdt.js"></script>
+                <script>try{Typekit.load({ async: true });}catch(e){}</script>
+              </body>
+            </html>
+        </xsl:template>
+      
+      
+      <!-- Firmenportrait -->
+      <xsl:template match="organization">
+          <xsl:value-of disable-output-escaping="yes" select="/jobAdDetail/organization"/>
+      </xsl:template>
+      
+      <!-- Titel -->
+      <xsl:template match="title">
+      	<xsl:value-of disable-output-escaping="yes" select="."/>
+      </xsl:template>
+      
+      <!-- Stellenbeschreibung -->
+      <xsl:template match="description">
+      	<xsl:value-of disable-output-escaping="yes" select="."/>
+      </xsl:template>
+      
+      <!-- Anforderungsprofil -->
+      <xsl:template match="requirements">
+      	<xsl:value-of disable-output-escaping="yes" select="."/>
+      </xsl:template>
+      
+      <!-- Wir bieten -->
+      <xsl:template match="benefits">
+      	<xsl:value-of disable-output-escaping="yes" select="."/>
+      </xsl:template>
+      
+      
+</xsl:stylesheet>
+
